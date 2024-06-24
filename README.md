@@ -1,5 +1,5 @@
 <h1 align="center">
-  JavaScript Testing Fundamentals
+  <a href="https://testingjavascript.com/courses/javascript-mocking-fundamentals">JavaScript Mocking Fundamentals</a>
 </h1>
 
 <div align="center">
@@ -16,50 +16,34 @@
 <hr />
 
 <p align="center" style="font-size: 1.2rem;">
-  Learn how automated JavaScript testing works by building your own framework!
+  Learn how mocking in JavaScript tests works by implementing them from scratch!
 </p>
 
 <hr />
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+In this material, we have a set of `no-framework` tests that correspond to a set
+of jest tests (in the `__tests__` directory). The idea is that (with the
+exception of the first test), you look at the jest version first, then see how
+that would be implemented without a testing framework.
 
 Order of material:
 
-1.  `simple.js`
-2.  `assertion-library.js`
-3.  `testing-framework.js`
-4.  `async-await.js`
-5.  `globals.js`
-6.  `jest.test.js`
+1.  `monkey-patching.js` (no jest version)
+2.  `mock-fn.js`
+3.  `spy.js`
+4.  `inline-module-mock.js`
+5.  `external-mock-module.js`
 
-The files are intended to test the `math` module.
+The files are intended to test the `thumb-war.js` module and mock the `utils`
+module.
 
-To run the files, run `node lessons/<lesson-filename>.js`.
+To run the tests, run `npx jest`. To start watch mode run `npx jest --watch`
 
-> For the `global` one, run `node -r ./setup-globals.js ./lessons/globals.js`
->
-> For the `jest.test.js` one, run `npx jest`.
+## Custom jest runner.
 
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://nashkabbara.com"><img src="https://avatars3.githubusercontent.com/u/31865?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nash Kabbara</b></sub></a><br /><a href="https://github.com/kentcdodds/js-testing-fundamentals/commits?author=nkabbara" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://brunormferreira.github.io/"><img src="https://avatars3.githubusercontent.com/u/35575092?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bruno Ramires</b></sub></a><br /><a href="https://github.com/kentcdodds/js-testing-fundamentals/commits?author=brunormferreira" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/pbzona"><img src="https://avatars.githubusercontent.com/u/16768769?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Phil Z</b></sub></a><br /><a href="https://github.com/kentcdodds/js-testing-fundamentals/commits?author=pbzona" title="Documentation">📖</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+You can definitely run the `no-framework` files just using `node` (like this:
+`node src/no-framework/monkey-patching.js`), but in an effort to make running
+these easier, I created a custom jest runner that uses jest to run the files,
+but allow them to be run without the jest testing framework. It's really cool.
+It uses [`create-jest-runner`](https://www.npmjs.com/package/create-jest-runner)
+and should probably be published eventually.
